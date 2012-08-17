@@ -25,7 +25,7 @@ Here's another page
 Page Not Found!
 ```
 ```
-[stanleyn@triesmanner-lm] simple-web-server $ hotnode app-route-multilevel.js 
+[stanleyn@triesmanner-lm] ~ $ hotnode app-route-multilevel.js 
 [stanleyn@triesmanner-lm] ~ $ curl http://localhost:8080/about/this
 Multilevel routing with Node
 [stanleyn@triesmanner-lm] ~ $ curl http://localhost:8080/about/node
@@ -51,8 +51,22 @@ Page Not Found!
 --------------------------------------------------  
 ```
 
- * serving dynamic and static content
+ * serving static files
 
+```
+[stanleyn@triesmanner-lm] ~ $ hotnode app-static.js 
+[stanleyn@triesmanner-lm] ~ $ curl http://localhost:8080/
+<html>
+<head>
+<title>Yay Node!</title>
+<link rel="stylesheet" href="styles.css" type="text/css">
+…
+</html>
+[stanleyn@triesmanner-lm] ~ $ curl http://localhost:8080/script.js
+window.onload=function() {alert('Yay Node!');};
+[stanleyn@triesmanner-lm] ~ $ curl http://localhost:8080/styles.css
+#yay {font-size:5em;background:blue;color:yellow;padding:0.5em}
+```
 
  * caching files in memory
  * streaming large files from disk via HTTP
