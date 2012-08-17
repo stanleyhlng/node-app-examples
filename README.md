@@ -69,6 +69,16 @@ window.onload=function() {alert('Yay Node!');};
 ```
 
  * caching files in memory
+
+```
+[stanleyn@triesmanner-lm] ~ $ hotnode app-static-cache.js 
+[stanleyn@triesmanner-lm] ~ $ curl http://localhost:8080/
+[stanleyn@triesmanner-lm] ~ $ curl http://localhost:8080/
+--------------------------------------------------  
+loading content/index.html from disk
+loading content/index.html from cache
+``` 
+ 
  * streaming large files from disk via HTTP
  * securing web server
 	

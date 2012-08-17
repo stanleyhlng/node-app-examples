@@ -10,17 +10,31 @@ var mimeTypes = {
 
 var cache = {};
 function cacheAndDeliver(file, cb) {
-    if (!cache[file]) {
-        fs.readFile(file, function(err, data) {
-            if (!err) {
-                cache[file] = {content: data};
-            }
-            cb(err, data);
-        });
-        return;
-    }
-    console.log('loading ' + file + 'from cache');
-    cb(null, cache[file].content);
+    fs.stat(file, function(err, stats) {
+
+        var lastChanged = Date.parse(stats.ctime),
+            isUpdated = (cache[file]) && lastChanged > cache[file].timestamp;
+
+        if (!cache[file] || isUpdated) {
+            fs.readFile(file, function(err, data) {
+                
+                console.log('loading ' + file + ' from disk');                
+
+                if (!err) {
+                    cache[file] = {
+                        content: data,
+                        timestamp: Date.now()   // store a unix timestamp
+                    };
+                }
+                cb(err, data);
+            });
+            return;
+        }
+
+        console.log('loading ' + file + ' from cache');
+        cb(null, cache[file].content);
+
+    });
 }
 
 http.createServer(function (request, response) {
