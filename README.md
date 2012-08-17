@@ -80,7 +80,60 @@ loading content/index.html from cache
 ``` 
  
  * streaming large files from disk via HTTP
+
+```
+[stanleyn@triesmanner-lm] ~ $ curl -i http://localhost:8080/
+HTTP/1.1 200 OK
+Content-type: text/html
+Date: Fri, 17 Aug 2012 07:49:21 GMT
+Connection: keep-alive
+Transfer-Encoding: chunked
+
+<html>
+<head>
+<title>Yay Node!</title>
+<link rel=stylesheet href=styles.css type=text/css>
+...
+
+--------------------------------------------------
+
+piping content/index.html
+stats.size=200
+streaming content/index.html offset=0
+object
+streaming content/index.html offset=10
+object
+streaming content/index.html offset=20
+object
+streaming content/index.html offset=30
+...
+```
+
  * securing web server
+
+```
+[stanleyn@triesmanner-lm] ~ $ curl -i http://localhost:8080/../package.json
+HTTP/1.1 200 OK
+Date: Fri, 17 Aug 2012 08:11:10 GMT
+Connection: keep-alive
+Transfer-Encoding: chunked
+
+{
+  "name": "simple-web-server",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "hotnode app"
+  },
+  "dependencies": {
+    "hotnode": "0.0.6"
+  }
+}
+
+--------------------------------------------------
+hotnode: node process restarted
+content/../package.json
+```
 	
 ### /simple-http
 ### /simple-data-serialization
