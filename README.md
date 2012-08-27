@@ -156,6 +156,12 @@ content/package.json
 * downloading using throttle
 
 ### /simple-data-serialization
+
+* converting an object to JSON and back again
+* converting an object to XML and back again
+* browser-server tranmission via AJAX
+* working with real data: fetching trending tweets
+
 ### /simple-databases
 ### /simple-web-sockets
 ### /simple-express
