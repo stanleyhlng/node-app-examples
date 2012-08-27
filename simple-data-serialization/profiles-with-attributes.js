@@ -4,7 +4,7 @@ module.exports = {
         irc: function() { return this.github },
         twitter: "ryah",
         github: ["ry", "joyent"],
-        location: "San Francisco, USA",
+        location: {'@': {city: "San Francisco", country: "USA"}},
         description: "Creator of node.js"
     },
     issac: {
@@ -12,7 +12,7 @@ module.exports = {
         irc: "isaacs",
         twitter: "izs",
         github: "isaacs",
-        location: "San Francisco, USA",
+        location: {'@': {city: "San Francisco", country: "USA"}},
         description: "Author of npm, core contributor" 
     },
     bert: {
@@ -20,7 +20,7 @@ module.exports = {
         irc: "piscisauresus",
         twitter: "piscisaureus",
         github: "pisciaureus",
-        location: "Netherlands",
+        location: {'@': {country: "Netherlands"}},
         description: "Windows support, overall contributor"
     },
     tj: {
@@ -28,7 +28,7 @@ module.exports = {
         irc: "tjholowaychuk",
         twitter: "tjholowwaychuk",
         github: "visionmedia",
-        location: "Victoria, BC, Canada",
+        location: {'@': {city: "Victoria", country: "Canada"}, region: {'#': "British Columbia", '@': {type: "province"}}},
         description: "Author of express, jade and other popular modules"
     },
     felix: {
@@ -36,7 +36,7 @@ module.exports = {
         irc: "felixge",
         twitter: "felixge",
         github: "felixge",
-        location: "Berlin, Germany",
+        location: {'@': {city: "Berlin", country: "Germany"}},
         description: "Author of formidable, active core developer"
     }
 };
