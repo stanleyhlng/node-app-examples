@@ -112,6 +112,7 @@ streaming content/index.html offset=30
  * securing web server
 
 ```
+[stanleyn@triesmanner-lm] ~ $ hotnode app-secure-insecure.js 
 [stanleyn@triesmanner-lm] ~ $ curl -i http://localhost:8080/../package.json
 HTTP/1.1 200 OK
 Date: Fri, 17 Aug 2012 08:11:10 GMT
@@ -134,8 +135,26 @@ Transfer-Encoding: chunked
 hotnode: node process restarted
 content/../package.json
 ```
+```
+[stanleyn@triesmanner-lm] ~ $ hotnode app-secure.js 
+[stanleyn@triesmanner-lm] ~ $ curl -i http://localhost:8080/../package.json
+HTTP/1.1 200 OK
+Date: Fri, 17 Aug 2012 08:22:57 GMT
+Connection: keep-alive
+Transfer-Encoding: chunked
+
+--------------------------------------------------
+hotnode: node process restarted
+content/package.json
+```
 	
 ### /simple-http
+
+* processing post data
+* handling file upload
+* using node as HTTP client
+* downloading using throttle
+
 ### /simple-data-serialization
 ### /simple-databases
 ### /simple-web-sockets
