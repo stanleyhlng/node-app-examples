@@ -6,6 +6,7 @@
     "start": "hotnode app"
   },
   "dependencies": {
+    "colors": "0.6.0-1",
     "hotnode": "0.0.6",
     "xml2js": "0.1.14"
   }
