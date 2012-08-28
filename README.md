@@ -163,6 +163,17 @@ content/package.json
 * working with real data: fetching trending tweets
 
 ### /simple-databases
+
+* writing to a csv file
+* connecting and sending sql to a mysql server
+* storing and retrieving data with mongodb
+* storing and retrieving data with mongoskin
+* storing data to couchdb with cradle
+* retrieving data from couchdb with cradle
+* accessing crouchdb changes stream with cradle
+* storing and retrieving data with redis
+* implementing pubsub with redis
+
 ### /simple-web-sockets
 ### /simple-express
 ### /simple-security

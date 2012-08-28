@@ -1,0 +1,12 @@
+{
+  "name": "simple-database",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "hotnode app"
+  },
+  "dependencies": {
+    "hotnode": "0.0.6",
+    "ya-csv": "0.9.2"
+  }
+}
