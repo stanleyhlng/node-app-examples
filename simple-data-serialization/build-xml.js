@@ -19,9 +19,16 @@ module.exports = function buildXml(rootObj, rootName) {
         Object.keys(obj).forEach(function(key) {
             var open = "<" + key + ">",
                 close = "</" + key + ">\n",
-                nonObj = (obj[key] && {}.toString.call(obj[key] !== "[object object]"),
+                nonObj = (obj[key] && {}.toString.call(obj[key]) !== "[object object]"),
                 isArray = Array.isArray(obj[key]),
                 isFunc = (typeof obj[key] === "function");
+
+/*
+console.log("[INFO]", "key", key);
+console.log("[INFO]", "nonObj", nonObj);
+console.log("[INFO]", "isArray", isArray);
+console.log("[INFO]", "isFunc", isFunc);
+*/
 
             if (isArray) {
                 obj[key].forEach(function (xmlNode) {
@@ -55,5 +62,7 @@ module.exports = function buildXml(rootObj, rootName) {
     }(rootObj));
 
     xml += "</" + rootName + ">";
+
+console.log("[INFO]", "xml", xml);
     return xml;
 }
