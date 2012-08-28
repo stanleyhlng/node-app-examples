@@ -8,6 +8,7 @@
   "dependencies": {
     "hotnode": "0.0.6",
     "mongodb": "1.1.4",
+	"mongoskin": "0.4.1",
     "mysql": "0.9.6",
     "ya-csv": "0.9.2"
   }
