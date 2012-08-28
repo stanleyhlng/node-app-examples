@@ -1,5 +1,5 @@
 var csv = require('ya-csv'),
-    writer = csv.createCsvFileWriter('data-custom.csv', {
+    writer = csv.createCsvFileWriter('data/data-custom.csv', {
         'separator': '~',
         'quote': '|',
         'escape': '|'

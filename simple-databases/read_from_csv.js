@@ -1,5 +1,5 @@
 var csv = require('ya-csv'),
-    reader = csv.createCsvFileReader('data.csv'),
+    reader = csv.createCsvFileReader('data/data.csv'),
     data = [];
 
 reader
