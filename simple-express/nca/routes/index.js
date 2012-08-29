@@ -14,3 +14,14 @@ exports.mrpage = function(req, res) {
 exports.anypage = function(req, res) {
     res.send('Welcome to the ' + req.params.page + ' page');
 };
+
+exports.anypageAdmin = function(req, res) {
+    var admin = req.params.admin;
+    if (admin) {
+        if (['add', 'delete'].indexOf(admin) !== -1) {
+            res.send('So you want to ' + req.params.admin + ' ' + req.params.page + '?');
+            return;
+        }
+        res.send(404);
+    }
+};

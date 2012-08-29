@@ -45,12 +45,9 @@ app.configure('production', function(){
 });
 
 app.get('/', routes.index);
-app.get('/page', function(req, res) {
-    res.send('Hello, I am Mr. Page.');
-});
-app.get('/:page', function(req, res) {
-    res.send('Weclome to the ' + req.params.page + ' page');
-});
+app.get('/page', routes.mrpage);
+app.get('/:page([a-zA-Z]+)', routes.anypage);
+app.get('/:page/:admin?', routes.anypageAdmin);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
