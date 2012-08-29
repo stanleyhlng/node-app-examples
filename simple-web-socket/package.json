@@ -9,6 +9,7 @@
     "hotnode": "0.0.6",
     "now": "0.8.1",
     "socket.io": "0.9.10",
+    "socket.io-client": "0.9.10",
     "websocket": "1.0.7"
   }
 }
