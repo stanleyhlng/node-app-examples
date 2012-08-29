@@ -24,13 +24,20 @@ app.configure(function(){
 app.configure('development', function(){
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(express.errorHandler({
-    dumpExpceptions: true,
+    dumpExceptions: true,
     showStack: true
   }));
 });
 
+app.configure('staging', function(){
+  app.use(express.errorHandler({
+    dumpException: true
+  }));
+});
+
 app.configure('production', function(){
-  app.use(express.staticCache());
+  app.set('port', 8080);
+  //app.use(express.staticCache());
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(express.errorHandler({
     dumpExceptions: true
@@ -38,8 +45,14 @@ app.configure('production', function(){
 });
 
 app.get('/', routes.index);
+app.get('/page', function(req, res) {
+    res.send('Hello, I am Mr. Page.');
+});
+app.get('/:page', function(req, res) {
+    res.send('Weclome to the ' + req.params.page + ' page');
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
-  console.log("DEBUG", "process.env", process.env);
+  console.log("DEBUG", "process.env.NODE_ENV", process.env.NODE_ENV || "");
 });

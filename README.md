@@ -182,6 +182,15 @@ content/package.json
 * create a real-time widget
 
 ### /simple-express
+
+* generating express scaffolding
+* defining and applying environments
+* dynamic routing
+* templating in express
+* css engines with express
+* initializing and using a session
+* making an express web app
+
 ### /simple-security
 ### /simple-networking
 ### /simple-node-module
