@@ -175,6 +175,12 @@ content/package.json
 * implementing pubsub with redis
 
 ### /simple-web-sockets
+
+* creating a web-socket server
+* seamless fallbacking with socket.io
+* callbacks over socket.io transport
+* create a real-time widget
+
 ### /simple-express
 ### /simple-security
 ### /simple-networking

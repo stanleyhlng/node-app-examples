@@ -1,0 +1,12 @@
+{
+  "name": "simple-web-socket",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "hotnode app"
+  },
+  "dependencies": {
+    "hotnode": "0.0.6",
+    "websocket": "1.0.7"
+  }
+}
