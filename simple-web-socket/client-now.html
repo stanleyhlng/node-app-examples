@@ -1,0 +1,21 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <div id="output"></div>
+        <script src="/nowjs/now.js"></script>
+        <script>
+            var output = document.getElementById('output');
+
+            now.square = function(num) {
+                output.innerHTML = "<div>" + num + " x " + " is " + (num * num) + "</div>";    
+            };
+
+            now.ready(function() {
+                now.base64('base64 me server side', function(msg) {
+                    output.innerHTML += '<div>Received: ' + msg + '</div>';
+                });
+            });
+        </script>
+    </body>
+</html>
