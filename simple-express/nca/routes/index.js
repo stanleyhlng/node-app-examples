@@ -8,6 +8,10 @@ var profiles = require("../profiles");
 exports.index = function(req, res) {
     //res.render('index', { title: 'Express' });
     //console.log(profiles);
+    if (req.xhr) {
+        res.send(JSON.stringify(profiles));
+        return;
+    }
     res.render('index', { title: 'Profiles', profiles: profiles });
 };
 
