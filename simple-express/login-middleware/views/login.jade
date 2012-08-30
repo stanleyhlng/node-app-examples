@@ -1,6 +1,10 @@
 extends layout
 
 block content
+  if flash.error
+    hr
+    b= flash.error
+    hr
   if user
     form(method='post')
       input(name="_method", type="hidden", value="DELETE")

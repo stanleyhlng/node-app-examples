@@ -2,16 +2,19 @@ var users = {
 	'stanleyhlng': ''
 };
 
+function validate(user, cb) {
+	var valid = Object.keys(users).some(function(name) {
+		return (user.name === name && user.pwd === users[name]);
+	});
+	cb((!valid && {msg: 'Login details invalid'}));
+}
+
 module.exports = function(req, res, next) {
 	var method = req.method.toLowerCase(),
 		user = req.body.user || false,
 		logout = (method === 'delete'),
 		login = (method === 'post' && user),
 		routes = req.app.routes[method];
-
-	//console.log("DEBUG", "req.app.routes", req.app.routes);
-	console.log("DEBUG", "user", user);
-	console.log("DEBUG", "login", login);
 
 	if (!routes) {
 		next();
@@ -32,6 +35,7 @@ module.exports = function(req, res, next) {
 	}
 
 	if (login) {
+/*
 		Object.keys(users).forEach(function(name) {
 			if (user.name === name && user.pwd === users[name]) {
 				req.session.user = {
@@ -39,6 +43,17 @@ module.exports = function(req, res, next) {
 					pwd: user.pwd
 				};
 			}
+		});
+*/
+		validate(user, function(err) {
+			if (err) {
+				req.flash('error', err.msg);
+				return;
+			}
+			req.session.user = {
+				name: user.name,
+				pwd: user.pwd
+			};
 		});
 	}
 
