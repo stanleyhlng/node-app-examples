@@ -18,6 +18,8 @@ app.configure(function(){
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
+  app.use(express.cookieParser('stanleyhlng'));
+  app.use(express.session());
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
 });
@@ -27,6 +29,8 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
+app.post('/', routes.login, routes.index);
+app.del('/', routes.logout, routes.index);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

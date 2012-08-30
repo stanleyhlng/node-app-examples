@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "express": "3.0.0rc3",
+    "hotnode": "0.0.6",
     "jade": "*"
   }
 }
