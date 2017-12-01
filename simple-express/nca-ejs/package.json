@@ -6,8 +6,8 @@
     "start": "node app"
   },
   "dependencies": {
+    "ejs": "^2.5.7",
     "express": "3.0.0rc3",
-    "ejs": "0.8.2",
     "hotnode": "0.0.6"
   }
 }
